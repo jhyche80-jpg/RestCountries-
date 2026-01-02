@@ -141,7 +141,7 @@ Include lessons about problem solving and debugging.
 - typescript 
 
 ### Websites Used
-- HomePage Api = "https://restcountries.com/v3.1/all?fields=region,flag,population,name,capital,currency,lang,subregion,border"
+- HomePage Api = "https://restcountries.com/v3.1/all?fields=region,flag,population,name,capital,currency,lang,subregion"
 - 
 
 
