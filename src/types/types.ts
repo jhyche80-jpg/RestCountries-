@@ -19,7 +19,7 @@ export interface Country {
         common: string
         nativeName?: Record<string, { common: string }>
     }
-    languages?: Record<string, string>
+    languages?: Record<string, string[]>
     currencies?: Record<string, { name: string }>
     borders?: string
     tld?: string
@@ -34,8 +34,8 @@ export interface CountryPage {
     domain: string
     flag: string
     currencies: string
-    language: string
-    border: string
+    language: string[]
+    border: string[]
 }
 
 export type ApiDataType<T> = {

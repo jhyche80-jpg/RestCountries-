@@ -143,7 +143,8 @@ Include lessons about problem solving and debugging.
 ### Websites Used
 - HomePage Api = "https://restcountries.com/v3.1/all?fields=region,flag,population,name,capital,currency,lang,subregion"
 - https://react.dev/learn/rendering-lists
-
+- https://teamtreehouse.com/community/javascript-formatting-numbers-with-commas
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
 
 
 

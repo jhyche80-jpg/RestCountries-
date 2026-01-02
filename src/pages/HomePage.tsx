@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { CountryContext } from '../Provider/context'
 import { useNavigate } from 'react-router-dom'
 import PageDisplay from '../components/PageDisplay'
-import type { ApiDataType, CountryPage, Country } from '../types/types'
+import type { ApiDataType, Country } from '../types/types'
 
 export default function HomePage() {
     const details = useContext(CountryContext) as ApiDataType<Country[]> | null
@@ -19,7 +19,7 @@ export default function HomePage() {
 
                 <div key={dets.name.common}>
 
-                    <button className='CountryBtn' onClick={() => navigate(`country/${dets.name}`)}>
+                    <button className='CountryBtn' onClick={() => navigate(`country/${dets.name.common}`)}>
                         <PageDisplay
                             flag={dets.cca2}
                             population={dets.population}
