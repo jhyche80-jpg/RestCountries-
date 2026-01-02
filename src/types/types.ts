@@ -21,8 +21,8 @@ export interface Country {
     }
     languages?: Record<string, string[]>
     currencies?: Record<string, { name: string }>
-    borders?: string
-    tld?: string
+    borders?: string[]
+
 }
 
 export interface CountryPage {

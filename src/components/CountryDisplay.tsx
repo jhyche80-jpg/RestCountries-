@@ -41,11 +41,24 @@ export default function CountryDisplay() {
                 const languages = c.languages ? Object.values(c.languages).join(", ") : 'N/A'
 
                 //borders 
-                const LangNames = new Intl.DisplayNames('en', { type: "language" })
-                const Borders = c.borders ? Object.values(c.borders).map((b) => (<p>{LangNames.of(b)}</p>
+                const RegionNames = new Intl.DisplayNames(['en'], { type: "language" })
+                const Borders = Array.isArray(c.borders)
+                    ? c.borders.map((b) => {
+                        let name: string | undefined
 
+                        try {
+                            name = RegionNames.of(b)
+                        } catch {
+                            name = undefined
+                        }
 
-                )) : "N/A"
+                        return name ? (
+                            <span key={b} style={{ marginRight: "8px" }}>
+                                {name}
+                            </span>
+                        ) : null
+                    })
+                    : "N/A"
 
                 return (<div key={c.name.common}>
                     <img src={`https://flagsapi.com/${c.cca2}/flat/64.png`} alt={`Photo of ${c.name.common}'s flag`} />
