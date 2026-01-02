@@ -3,9 +3,26 @@
 export interface HomePageCountry {
     flag: string
     population: number | string
-    reigion: string
+    region: string
     capital: string
     name: string
+}
+
+export interface Country {
+    flag: string
+    population: number
+    region: string
+    subregion: string
+    capital: string
+    cca2: string
+    name: {
+        common: string
+        nativeName?: Record<string, { common: string }>
+    }
+    languages?: Record<string, string>
+    currencies?: Record<string, { name: string }>
+    borders?: string
+    tld?: string
 }
 
 export interface CountryPage {
@@ -22,7 +39,7 @@ export interface CountryPage {
 }
 
 export type ApiDataType<T> = {
-    info: T | null
+    data: T | null
     loading: boolean
     error: string | null
 }
