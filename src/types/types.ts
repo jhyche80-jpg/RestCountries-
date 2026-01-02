@@ -20,3 +20,9 @@ export interface CountryPage {
     language: string
     border: string
 }
+
+export type ApiDataType<T> = {
+    info: T | null
+    loading: boolean
+    error: string | null
+}
