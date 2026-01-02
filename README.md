@@ -1,73 +1,157 @@
-# React + TypeScript + Vite
+# REST Countries API with Color Theme Switcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
+1. [Overview](#overview)  
+   1. [Features](#features)  
+2. [Problem](#problem)  
+   1. [Goal Breakdown](#goal-breakdown)  
+   2. [Questions and Answers](#questions-and-answers)  
+   3. [Input](#input)  
+   4. [Output](#output)  
+   5. [Step by Step Plan](#step-by-step-plan)  
+3. [Build Steps](#build-steps)  
+4. [Troubleshooting](#troubleshooting)  
+   1. [Problems](#problems)  
+   2. [Solutions](#solutions)  
+5. [Reflection](#reflection)  
+6. [References](#references)  
+   1. [Programs Used](#programs-used)  
+   2. [Websites Used](#websites-used)  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+Develop an application that fetches data from the REST Countries API , displays country information, and includes a color theme switcher for light and dark modes.
+### Features
+- See all countries from the API on the homepage
+- Search for a country using an input field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Bonus: Toggle the color scheme between light and dark mode
 
-## React Compiler
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## Problem
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Goal Breakdown
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Countries 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- → Calling an api (function API Fetch)
+- → Store the information (context)
+- → Show the information in a list for the main page ( figure out how to display the information in a colum of 4 and in rows)
+- → filter by category 
+- → Show infromation based on the specific country clicked on another page
+- → Search for a specific country and have it show the information on the change 
+
+### Questions and Answers
+List important questions and answers that helped guide the build.
+1. How will I get the Border countries ?
+  - I can use the sub-regions and render a list by listing all the countries in that sube reigion 
+2. This api doesnt really display the flag here or a photo of the flag how will I get the photo?
+- the easiest way to do it is using the website flagsapi.com 
+ex 
 ```
+<img src="https://flagsapi.com/:country_code/:style/:size.png">
+// example 
+<img src="https://flagsapi.com/BE/flat/64.png"> 
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+### Input
+Describe what data the project takes in.  
+Explain where the input comes from and how the user provides it.
+
+Example:  
+- Username from input field  
+- Password from input field  
+
+### Output
+Describe what output the project produces after receiving an input.
+
+Example:  
+- Displays login success message  
+- Redirects to dashboard  
+
+---
+
+## Step by Step Plan
+Plan before building.
+
+1. Set up project folder  
+2. set up types, context , util, providers and pages folders.   
+3.  Make the conntext page and provider page 
+5. Wrap browser router in main
+6. Make the Routes in app
+7. Fetch APi
+8. Render List of countries and basic information 
+9. create the page I will navigate to 
+10. Render information based on what is looked up . 
+
+
+
+---
+
+## Build Steps
+1. I created the types folder
+2. 
+
+---
+
+## Troubleshooting
+
+Use a simple troubleshooting mindset.
+
+Ask yourself:  
+- What should happen right now  
+- What is actually happening  
+- Test one assumption at a time  
+
+### Problems
+List specific problems you faced.
+
+1.  
+2.  
+3.  
+
+### Solutions
+Explain how you solved each problem.
+
+1.  
+2.  
+3.  
+
+---
+
+## Reflection
+Reflect on what you learned, what worked well, and what you would do differently.  
+Include lessons about problem solving and debugging.
+
+---
+
+## References
+
+### Programs Used
+- Browser Router 
+- React 
+- typescript 
+
+### Websites Used
+- HomePage Api = "https://restcountries.com/v3.1/all?fields=region,flag,population,name,capital,currency,lang,subregion,border"
+- 
+
+
+
+
+
+
+
+
+
+
+
+
