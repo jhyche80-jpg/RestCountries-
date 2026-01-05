@@ -5,11 +5,14 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    text-align: start;
+    justify-content: center;
 }
 
 .CountryPreview:hover {
     cursor: pointer;
     border: solid black;
+    border-radius: 5px;
 }
 
 .PreviewImg {
@@ -18,6 +21,7 @@
     display: block;
     object-fit: cover;
     border-radius: 5px 5px 0px 0px;
+
 }
 
 
@@ -30,7 +34,11 @@
 }
 
 #PreviewDetails {
-    width: 250px;
+    width: 240px;
     background-color: white;
     box-shadow: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 0px 0px 5px 5px;
+
 }

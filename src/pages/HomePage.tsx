@@ -22,24 +22,27 @@ export default function HomePage() {
 
     const filteredCountries = details?.data?.filter((country) => {
         const matchesRegion = filterItem === "" || country.region === filterItem
-        const MatchesSearch = searchTerm.toLowerCase() === "" || country.name.common.includes(searchTerm.toLowerCase())
+        const MatchesSearch = searchTerm.toLowerCase() === "" || country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
 
         return matchesRegion && MatchesSearch
     })
 
+
     return (
         <div id='CountryList'>
             <div>
-                <button>Search</button>
-                <input type="text" placeholder='Search for a Country' onChange={() => setSearchTerm(e.target.value)} />
+
+                <input type="search" value={searchTerm}
+                    placeholder='Search for a Country'
+                    onChange={(e) => setSearchTerm(e.target.value)} />
             </div>
             <select name="name" id="" onChange={HandleOnChange} >
-                <option value="" hidden selected disabled>Filter By Region</option>
+                <option value="" >Filter By Region</option>
                 <option value="Africa">Africa</option>
                 <option value="Americas">Americas</option>
                 <option value="Asia">Asia</option>
                 <option value="Oceania">Oceania</option>
-                <option value="Eruope">Europe</option>
+                <option value="Europe">Europe</option>
             </select>
             <div id='RenderedCountryList'>
                 {filteredCountries?.map((dets) => (
