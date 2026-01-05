@@ -10,7 +10,7 @@ function App() {
 
 
   return (
-    <>
+    <div id='Main'>
       <div>
         <div id='header'>
           <h2>Where in the world?</h2>
@@ -29,7 +29,7 @@ function App() {
 
 
 
-    </>
+    </div>
   )
 }
 

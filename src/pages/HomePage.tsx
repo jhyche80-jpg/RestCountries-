@@ -44,7 +44,7 @@ export default function HomePage() {
             <div id='RenderedCountryList'>
                 {filteredCountries?.map((dets) => (
 
-                    <div key={dets.name.common}>
+                    <div key={dets.name.common} >
 
                         <button className='CountryBtn' onClick={() => navigate(`country/${dets.name.common}`)}>
                             <PageDisplay

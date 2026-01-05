@@ -1,5 +1,5 @@
 
-
+import "flag-icons/css/flag-icons.min.css"
 
 // a function to fetch an Api 
 export async function FetchAPi<T>(url: string): Promise<T> {
