@@ -1,0 +1,10 @@
+#CountryPreview {
+    width: 150px;
+    text-align: start;
+    padding: 0;
+}
+
+.FlagImgPreview {
+    width: 150px;
+    height: 100px
+}

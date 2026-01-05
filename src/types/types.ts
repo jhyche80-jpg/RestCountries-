@@ -1,5 +1,6 @@
 
 
+
 export interface HomePageCountry {
     flag: string
     population: number | string
@@ -42,4 +43,12 @@ export type ApiDataType<T> = {
     data: T | null
     loading: boolean
     error: string | null
+}
+export type Regions = "africa" | "americas" | 'asia' | 'oceania' | 'europe' | null
+
+export interface CountryFilter {
+    handleChange: (filter: {
+        region?: Regions
+        searchTerm: string
+    })
 }

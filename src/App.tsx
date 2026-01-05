@@ -14,7 +14,9 @@ function App() {
       <div>
         <div id='header'>
           <h2>Where in the world?</h2>
+
         </div>
+
 
         <Routes>
           <Route path='/' element={<HomePage />} />
