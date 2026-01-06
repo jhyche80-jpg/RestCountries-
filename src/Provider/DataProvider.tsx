@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FetchAPi } from '../utils/utils'
 import { CountryContext, ModeContext } from './context'
-import { type ThemeType, type ApiDataType, type ThemeMode } from '../types/types'
+import { type ApiDataType, type ThemeMode } from '../types/types'
 
 export default function DataProvider({ children }: { children: React.ReactNode }) {
     const [countryInfo, setCountryInfo] = useState<ApiDataType<any>>({

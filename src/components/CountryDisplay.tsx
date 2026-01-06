@@ -34,7 +34,7 @@ export default function CountryDisplay() {
         FetchAPi(
             `https://restcountries.com/v3.1/alpha?codes=${countryCodes}&fields=cca3,name`
         )
-            .then((res) => {
+            .then((res: any) => {
                 const map: Record<string, string> = {}
                 res.forEach((c: any) => {
                     map[c.cca3] = c.name.common

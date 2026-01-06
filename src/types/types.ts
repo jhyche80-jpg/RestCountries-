@@ -1,4 +1,3 @@
-import type { Dispatch, SetStateAction } from "react"
 
 export type ThemeMode = "light" | "dark"
 
@@ -53,7 +52,7 @@ export interface CountryFilter {
     handleChange: (filter: {
         region?: Regions
         searchTerm: string
-    })
+    }) => void
 }
 export type ThemeType = {
     theme: 'dark' | "light"
