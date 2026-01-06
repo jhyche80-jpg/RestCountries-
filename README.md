@@ -63,19 +63,12 @@ ex
 
 ```
 ### Input
-Describe what data the project takes in.  
-Explain where the input comes from and how the user provides it.
+- Search term 
+- category term 
 
-Example:  
-- Username from input field  
-- Password from input field  
 
 ### Output
-Describe what output the project produces after receiving an input.
-
-Example:  
-- Displays login success message  
-- Redirects to dashboard  
+- A list of countryies that could be looked up 
 
 ---
 
@@ -98,7 +91,18 @@ Plan before building.
 
 ## Build Steps
 1. I created the types folder
-2. 
+2. I then went ahead and madde the componests I would use during the project such as the Display card for both the home page (how the countries would be viewes )and the countries deatail display as well . 
+3. I made a context page adding  the theme mode change and the data that would be stored to it inside there
+4. I then made a dataProvider page that was used to wrap App in the provider in order to provide context to the tree 
+5. I made the utils page and made a function that would fetch the information i need using the Async and await function
+6. I used the newly made function to render a list of the countries and their preview infor inside the component cart for them 
+7. I then did the same for the countries detail page which was where the browser would navigate to after that I set up the navigation and also wrapped app inside the Browser router provider.
+8. After that I added the the event  handling to the page managing button clicks like back or forward
+9. I debugged and tried to find easier ways to do things
+10. I added  filtering to the page so that the page will show the item that is either being looked up or  being filtered. 
+11. I added styling and dark and light mode to the page 
+   - I did this by maing a function that wouldd read what theme is currently ( theme was profided via a context provider wrapped around App)
+12. I fixed my ReadMe 
 
 ---
 
@@ -114,23 +118,39 @@ Ask yourself:
 ### Problems
 List specific problems you faced.
 
-1.  
-2.  
-3.  
+1.  Getting country names to render for the border coutries
+      - whenever I tried to show the names of the border countries they would not render correctly (only showing te country code)
+      - What should be happening?
+         - Intl.Display names should show use the county code to show the name of the country 
+      - what is actually happening 
+         -When i set it to region the screen gores white due to a run time error 
+      - There is an unforseen effect happening with th method i am using 
+ 
+2. Search was not working 
+   - What should be happening 
+      - Every time I type something the search should pop ulate with results 
+   - what is actually hapening 
+      - Nothing is happening 
+   - Thoughts?
+      - Somewhere something is the search term isn not being used or considered  
+
+
 
 ### Solutions
 Explain how you solved each problem.
 
-1.  
-2.  
-3.  
+1. Instead of continuing to use that function I decided to take the country odes and fetch their information in their  based off their fields and then take the name from the data fetched and map through there and display all the names that way   
+
+2.  I was correct The search term was not being used correctly so I added in code to make the search term and the filter term display and populate on change bassed on which one it is.  
 
 ---
 
 ## Reflection
-Reflect on what you learned, what worked well, and what you would do differently.  
-Include lessons about problem solving and debugging.
+did this project to challenge myself and try to learn something new. I felt that I needed more practice with React Router. During this project, I gained a better understanding of how to use params, navigate to a specific page, and render the correct information on that page.
 
+Problem solving and finding solutions to problems is starting to make more sense to me, since there are a lot of different ways to do things. If the first approach doesn’t work, I’ve learned that I can pivot and try another one. I experienced this when trying to get the flags and border countries to display correctly. One of the biggest challenges was figuring out how to structure the URL in order to get all the information I needed.
+
+Overall, this project helped me better understand context providers and how much more useful they are compared to prop drilling.
 ---
 
 ## References
