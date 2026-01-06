@@ -1,12 +1,14 @@
 import { useContext, useState, type ChangeEvent, } from 'react'
-import { CountryContext } from '../Provider/context'
+import { CountryContext, ModeContext } from '../Provider/context'
 import { useNavigate } from 'react-router-dom'
 import PageDisplay from '../components/PageDisplay'
 import type { ApiDataType, Country } from '../types/types'
 import "./HomePage.css"
+import { ModeCheck } from '../utils/utils'
 
 export default function HomePage() {
     const details = useContext(CountryContext) as ApiDataType<Country[]> | null
+    const { theme } = useContext(ModeContext)
     const navigate = useNavigate()
     const [filterItem, setFilterItem] = useState<string>("")
     const [searchTerm, setSearchTerm] = useState("")
@@ -30,14 +32,16 @@ export default function HomePage() {
 
     return (
         <div id='CountryList'>
-            <div id='InputArea'>
+            <div id='InputArea'  >
 
-                <span id='Search'>🔍<input type="search" value={searchTerm}
+                <span id='Search' className={ModeCheck("InputLight", "InputDark", theme)}>🔍<input type="search" value={searchTerm}
                     placeholder='Search for a Country ...'
+                    className={ModeCheck("InputLight", "InputDark", theme)}
                     onChange={(e) => setSearchTerm(e.target.value)} />
                 </span>
 
-                <select name="name" id="Selection" onChange={HandleOnChange} >
+                <select className={ModeCheck("InputLight", "InputDark", theme)}
+                    name="name" id="Selection" onChange={HandleOnChange} >
                     <option value="" >Filter By Region</option>
                     <option value="Africa">Africa</option>
                     <option value="Americas">Americas</option>
@@ -51,7 +55,7 @@ export default function HomePage() {
             <div id='RenderedCountryList'>
                 {filteredCountries?.map((dets) => (
 
-                    <div key={dets.name.common} >
+                    <div key={dets.name.common} className='CountryPreviewBox' >
 
                         <button className='CountryBtn' onClick={() => navigate(`country/${dets.name.common}`)}>
                             <PageDisplay

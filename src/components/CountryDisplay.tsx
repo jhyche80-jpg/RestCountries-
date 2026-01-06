@@ -89,7 +89,7 @@ export default function CountryDisplay() {
 
 
                 return (
-                    <div key={c.name.common} id='CountryDisplayArea'>
+                    <div key={c.name.common} id='CountryDisplayArea' >
                         <div id='CountryImgContainer'>
                             <img
                                 src={`https://flagcdn.com/${c.cca2.toLowerCase()}.svg`}
@@ -102,7 +102,7 @@ export default function CountryDisplay() {
                             <h2>{c.name.common}</h2>
                             <div id='CountryBox2'>
 
-                                <div id='CountryBox3'>
+                                <div id='CountryBox3' >
                                     <p className='DetailFont'><strong>Native Name:</strong> {firstNative}</p>
                                     <p className='DetailFont'><strong>Population:</strong> {c.population.toLocaleString()}</p>
                                     <p className='DetailFont'><strong>Region:</strong> {c.region}</p>

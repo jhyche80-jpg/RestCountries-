@@ -1,12 +1,14 @@
 .CountryPreview {
     width: 250px;
     height: 300px;
-    background: rgb(224, 224, 224);
+    background: transparent;
     display: flex;
     flex-direction: column;
     align-items: start;
     text-align: start;
     justify-content: center;
+
+
 }
 
 .CountryPreview:hover {
@@ -35,7 +37,7 @@
 
 #PreviewDetails {
     width: 240px;
-    background-color: white;
+
     box-shadow: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -68,8 +70,17 @@
     width: 100%;
     height: auto;
     display: block;
+}
 
+.CDALight {
 
+    background-color: hsl(0, 100%, 100%);
+    color: hsl(200, 15%, 8%);
+}
+
+.CDADark {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 100%, 100%);
 }
 
 #BackBtn {
@@ -110,8 +121,6 @@
 }
 
 #BorderBtn {
-
-
     border: none;
     padding: 5px 15px 5px 15px
 }

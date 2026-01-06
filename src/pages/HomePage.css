@@ -3,6 +3,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 .CountryBtn {
@@ -11,17 +12,34 @@
     border: none;
 }
 
+.CountryPreviewBox {
+    border-radius: 5px;
+}
+
 #Search {
-    background: white;
     padding: 5px;
     border-radius: 5px;
     box-shadow: 2px 2px 2px grey;
     border: none;
+    margin-left: 50px;
 }
 
 input {
     border: none;
     width: 300px;
+    margin-left: 20px;
+}
+
+
+.InputLight {
+    background: hsl(0, 100%, 100%);
+    color: hsl(200, 15%, 8%);
+}
+
+.InputDark {
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+    box-shadow: none;
 }
 
 select {
@@ -30,6 +48,7 @@ select {
     border-radius: 5px;
     box-shadow: 2px 2px 2px grey;
     border: none;
+    margin-right: 50px;
 }
 
 #InputArea {
