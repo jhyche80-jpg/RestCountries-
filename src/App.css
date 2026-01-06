@@ -14,6 +14,19 @@
 
 }
 
+#MainLight {
+  background-color: hsl(0, 0%, 99%);
+  height: 100vh;
+
+}
+
+#MainDark {
+  background-color: hsl(207, 26%, 17%);
+  color: white;
+  height: auto;
+  background-size: cover;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -38,11 +51,11 @@
 }
 
 #headerLight {
-  background: white
+  background: rgb(236, 236, 236);
 }
 
 #headerDark {
-  background: black;
+  background: hsl(209, 23%, 22%);
   color: white;
 }
 
@@ -52,4 +65,13 @@
     padding-bottom: 5%;
     padding-left: 5%;
   }
+
+  #MainLight {
+    height: auto;
+  }
+
+  #MainDark {
+    height: auto;
+  }
+
 }

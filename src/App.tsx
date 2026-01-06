@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import CountryDisplay from './components/CountryDisplay'
 import { useContext } from 'react'
 import { ModeContext } from './Provider/context'
+import { ModeCheck } from './utils/utils'
 
 
 function App() {
@@ -12,9 +13,9 @@ function App() {
 
 
   return (
-    <div id='Main'>
+    <div id={ModeCheck("MainLight", 'MainDark', theme)} >
       <div>
-        <div id={theme === 'light' ? "headerLight" : "headerDark"} className='header'>
+        <div id={ModeCheck("headerLight", "headerDark", theme)} className='header'>
           <h2>Where in the world?</h2>
           <button id='ModeBtn' onClick={() => toggleTheme()}> {theme === 'light' ? "Dark" : "Light"} Mode</button>
         </div>

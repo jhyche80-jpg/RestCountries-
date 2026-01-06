@@ -52,6 +52,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    height: 100vh;
 }
 
 #CountryDisplayArea {
@@ -73,10 +74,20 @@
 
 #BackBtn {
     box-shadow: 2px 2px 1px grey;
-    border-radius: 5px;
+    border-radius: 2px;
     border: none;
     padding: 5px 15px 5px 15px;
     font-size: 10px;
+    margin-left: 50px;
+}
+
+.BackBtnLight {
+    background: hsl(0, 100%, 100%);
+}
+
+.BackBtnDark {
+    background: hsl(209, 23%, 22%);
+    color: hsl(0, 100%, 100%);
 }
 
 #CountryBox {
@@ -90,7 +101,6 @@
 #CountryBox2 {
     display: flex;
     flex-direction: row;
-
     text-align: start;
 
 }
@@ -99,18 +109,42 @@
     font-size: smaller;
 }
 
-.BorderBtn {
-    background: none;
-    box-shadow: 2px 2px 1px grey;
+#BorderBtn {
+
+
     border: none;
     padding: 5px 15px 5px 15px
 }
 
-.BorderBtn:hover {
+#BorderBtn:hover {
     background-color: whitesmoke;
     cursor: pointer;
+    color: black;
+}
+
+.borderBtnLight {
+    background: hsl(0, 100%, 100%);
+    color: hsl(200, 15%, 8%);
+    box-shadow: 2px 2px 1px grey;
+}
+
+.borderBtnDark {
+    background: hsl(209, 23%, 22%);
+    color: hsl(0, 100%, 100%);
+    box-shadow: none;
 }
 
 #CountryBox3 {
     margin-right: 100px;
+}
+
+@media(max-width:750px) {
+
+    #CountryDisplayArea {
+        flex-direction: column;
+    }
+
+    #CountryBox2 {
+        flex-direction: column;
+    }
 }

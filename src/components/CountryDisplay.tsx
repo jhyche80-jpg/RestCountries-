@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { type Country } from '../types/types'
-import { FetchAPi } from '../utils/utils'
+import { FetchAPi, ModeCheck } from '../utils/utils'
 import "./Display.css"
+import { ModeContext } from '../Provider/context'
 
 export default function CountryDisplay() {
     const { country } = useParams<{ country: string }>()
@@ -12,7 +13,7 @@ export default function CountryDisplay() {
     const [borderNames, setBorderNames] = useState<Record<string, string>>({})
 
     const navigate = useNavigate()
-
+    const { theme } = useContext(ModeContext)
     //  Fetch country
     useEffect(() => {
         setLoading(true)
@@ -49,7 +50,7 @@ export default function CountryDisplay() {
 
     return (
         <div id='CountryDisplayBox'>
-            <button onClick={() => navigate(-1)} id='BackBtn'>← Back</button>
+            <button onClick={() => navigate(-1)} id='BackBtn' className={ModeCheck("BackBtnLight", " BackBtnDark", theme)}>← Back</button>
 
             {data.map((c) => {
                 const nativeName = c.name.nativeName
@@ -73,8 +74,11 @@ export default function CountryDisplay() {
                                 <button
                                     key={b}
                                     style={{ marginRight: '8px' }}
+                                    id='BorderBtn'
                                     onClick={() => navigate(`/country/${name}`)}
-                                    className='BorderBtn'
+                                    className={ModeCheck("borderBtnLight", "borderBtnDark", theme)
+
+                                    }
                                 >
                                     {name}
                                 </button>
