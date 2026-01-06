@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { type Country } from '../types/types'
 import { FetchAPi } from '../utils/utils'
+import "./Display.css"
 
 export default function CountryDisplay() {
     const { country } = useParams<{ country: string }>()
@@ -16,8 +17,8 @@ export default function CountryDisplay() {
     useEffect(() => {
         setLoading(true)
         setError(null)
-
-        FetchAPi(`https://restcountries.com/v3.1/name/${country}`)
+        // make sure it doesn't show partials
+        FetchAPi(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
             .then((res) => setData((res as Country[]) || []))
             .catch((err) => setError(err.message))
             .finally(() => setLoading(false))
@@ -47,8 +48,8 @@ export default function CountryDisplay() {
     if (error) return <p>{error}</p>
 
     return (
-        <div>
-            <button onClick={() => navigate('/')}>Back</button>
+        <div id='CountryDisplayBox'>
+            <button onClick={() => navigate(-1)} id='BackBtn'>← Back</button>
 
             {data.map((c) => {
                 const nativeName = c.name.nativeName
@@ -73,6 +74,7 @@ export default function CountryDisplay() {
                                     key={b}
                                     style={{ marginRight: '8px' }}
                                     onClick={() => navigate(`/country/${name}`)}
+                                    className='BorderBtn'
                                 >
                                     {name}
                                 </button>
@@ -83,22 +85,40 @@ export default function CountryDisplay() {
 
 
                 return (
-                    <div key={c.name.common}>
-                        <img
-                            src={`https://flagsapi.com/${c.cca2}/flat/64.png`}
-                            alt={`Flag of ${c.name.common}`}
-                        />
+                    <div key={c.name.common} id='CountryDisplayArea'>
+                        <div id='CountryImgContainer'>
+                            <img
+                                src={`https://flagcdn.com/${c.cca2.toLowerCase()}.svg`}
+                                alt={`Flag of ${c.name.common}`}
+                                id='CountryDisplayImg'
+                            />
+                        </div>
 
-                        <h2>{c.name.common}</h2>
-                        <p><strong>Native Name:</strong> {firstNative}</p>
-                        <p><strong>Population:</strong> {c.population.toLocaleString()}</p>
-                        <p><strong>Region:</strong> {c.region}</p>
-                        <p><strong>Sub Region:</strong> {c.subregion}</p>
-                        <p><strong>Capital:</strong> {c.capital}</p>
-                        <p><strong>Top Level Domain:</strong> .{c.cca2.toLowerCase()}</p>
-                        <p><strong>Currencies:</strong> {money}</p>
-                        <p><strong>Languages:</strong> {languages}</p>
-                        <p><strong>Border Countries:</strong> {Borders}</p>
+                        <div id='CountryBox'>
+                            <h2>{c.name.common}</h2>
+                            <div id='CountryBox2'>
+
+                                <div id='CountryBox3'>
+                                    <p className='DetailFont'><strong>Native Name:</strong> {firstNative}</p>
+                                    <p className='DetailFont'><strong>Population:</strong> {c.population.toLocaleString()}</p>
+                                    <p className='DetailFont'><strong>Region:</strong> {c.region}</p>
+                                    <p className='DetailFont'><strong>Sub Region:</strong> {c.subregion}</p>
+                                    <p className='DetailFont'><strong>Capital:</strong> {c.capital}</p>
+                                </div>
+
+                                <div>
+                                    <p className='DetailFont'><strong>Top Level Domain:</strong> .{c.cca2.toLowerCase()}</p>
+                                    <p className='DetailFont'><strong>Currencies:</strong> {money}</p>
+                                    <p className='DetailFont'><strong>Languages:</strong> {languages}</p>
+
+                                </div>
+
+
+                            </div>
+                            <p className='DetailFont'><strong>Border Countries:</strong>  {Borders}</p>
+
+                        </div>
+
                     </div>
                 )
             })}

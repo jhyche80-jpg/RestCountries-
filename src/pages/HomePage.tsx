@@ -30,20 +30,24 @@ export default function HomePage() {
 
     return (
         <div id='CountryList'>
-            <div>
+            <div id='InputArea'>
 
-                <input type="search" value={searchTerm}
-                    placeholder='Search for a Country'
+                <span id='Search'>🔍<input type="search" value={searchTerm}
+                    placeholder='Search for a Country ...'
                     onChange={(e) => setSearchTerm(e.target.value)} />
+                </span>
+
+                <select name="name" id="Selection" onChange={HandleOnChange} >
+                    <option value="" >Filter By Region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">Americas</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                    <option value="Europe">Europe</option>
+                </select>
             </div>
-            <select name="name" id="" onChange={HandleOnChange} >
-                <option value="" >Filter By Region</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">Americas</option>
-                <option value="Asia">Asia</option>
-                <option value="Oceania">Oceania</option>
-                <option value="Europe">Europe</option>
-            </select>
+
+
             <div id='RenderedCountryList'>
                 {filteredCountries?.map((dets) => (
 
