@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import type { HomePageCountry } from '../types/types'
 import "./Display.css"
 import { ModeCheck } from '../utils/utils'
